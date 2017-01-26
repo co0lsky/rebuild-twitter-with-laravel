@@ -1,27 +1,25 @@
-# Laravel PHP Framework
+# Rebuild Twitter with Laravel
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Perhaps you have completed the courses like [PHP with Laravel for beginners — Become a Master in Laravel](https://www.udemy.com/php-with-laravel-for-beginners-become-a-master-in-laravel/) or [Laravel From Scratch](https://laracasts.com/series/laravel-5-from-scratch). You’ve learned the basics of Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Now what?
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+You want to build something bigger than a basic CRUD app.
 
-## Official Documentation
+Let’s say building a blog. You’ve learned how to create a post, update it, and delete it. Now you want to know how to build the user account, who can create a post that available to other users who want to view it. You want to know what’s the best practices with the naming conventions for routes.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+I am going to cover those topics in this Rebuild Twitter with Laravel.
 
-## Contributing
+Follow along and together we’ll build an interesting app, at the same time, develop your skills and be ready to change the world.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Here is what we are going to do.
 
-## Security Vulnerabilities
+We’ll rebuild the famous social network, Twitter from scratch. Please bear in mind that this is a project for learning, the outcome is not exactly same as the actual Twitter website. We are learning by rebuilding the key features in our own way.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+These are the key features of the Twitter that we are going to rebuild,
+* User
+* Follow/Unfollow
+* Tweet/Retweet
+* Timeline
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+For more, please visit to the [Rebuild Twitter with Laravel](https://medium.com/@just4sky/rebuild-twitter-with-laravel-user-and-authentication-9b0adb392dc6).
