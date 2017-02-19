@@ -11,17 +11,17 @@ class ProfileController extends Controller
     public function show($username)
     {
     	$user = User::where('username', $username)->firstOrFail();
-    	$me = Auth::user();
-		$is_edit_profile = (Auth::id() == $user->id);
-		$is_follow_button = !$is_edit_profile && !$me->isFollowing($user);
 
-        return view('profile', ['user' => $user, 'is_edit_profile' => $is_edit_profile, 'is_follow_button' => $is_follow_button]);
+    	$is_edit_profile = false;
+    	$is_following = false;
+
+    	if (Auth::check()) {
+			$is_edit_profile = (Auth::id() == $user->id);
+
+			$me = Auth::user();
+			$is_following = !$is_edit_profile && $me->isFollowing($user);
+    	}
+
+        return view('profile', ['user' => $user, 'is_edit_profile' => $is_edit_profile, 'is_following' => $is_following]);
     }
-
-    // public function following()
-    // {
-    // 	$list = User::
-
-    // 	return view('following', ['list' => $list]);
-    // }
 }

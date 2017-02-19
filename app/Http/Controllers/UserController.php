@@ -6,12 +6,19 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class UserController extends Controller
 {
-    public function follows($username)
+    public function follows(Request $request)
     {
-    	// Find the User. Redirect if the User doesn't exist
-    	$user = User::where('username', $username)->firstOrFail();
+		$username =  $request->input('username');
+
+    	try {
+	    	$user = User::where('username', $username)->firstOrFail();
+    	} catch (ModelNotFoundException $exp) {
+    		return $this->responseFail('User doesn\'t exists');
+    	}
 
     	// Find logged in User
     	$id = Auth::id();
@@ -19,13 +26,18 @@ class UserController extends Controller
 
     	$me->following()->attach($user->id);
 
-    	return redirect('/' . $username);
+    	return $this->responseSuccess();
     }
 
-    public function unfollows($username)
+    public function unfollows(Request $request)
     {
-    	// Find the User. Redirect if the User doesn't exist
-    	$user = User::where('username', $username)->firstOrFail();
+		$username =  $request->input('username');
+
+    	try {
+	    	$user = User::where('username', $username)->firstOrFail();
+    	} catch (ModelNotFoundException $exp) {
+    		return $this->responseFail('User doesn\'t exists');
+    	}
 
     	// Find logged in User
     	$id = Auth::id();
@@ -33,6 +45,24 @@ class UserController extends Controller
 
     	$me->following()->detach($user->id);
 
-    	return redirect('/' . $username);
+    	return $this->responseSuccess();
+    }
+
+    private function responseSuccess($message = '')
+    {
+    	return $this->response(true, $message);
+    }
+
+    private function responseFail($message = '')
+    {
+    	return $this->response(false, $message);
+    }
+
+    private function response($status = false, $message = '')
+    {
+    	return response()->json([
+    		'status' => $status,
+    		'message' => $message,
+    		]);
     }
 }
