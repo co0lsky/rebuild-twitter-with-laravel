@@ -105,16 +105,18 @@
                         <div>0</div>
                     </a>
                 </li>
+                @if ($is_edit_profile)
                 <li>
-                    <a href="#" class="text-center">
+                    <a href="{{ url('/following') }}" class="text-center">
                         <div class="text-uppercase">Following</div>
-                        <div>0</div>
+                        <div>{{ $following_count }}</div>
                     </a>
                 </li>
+                @endif
                 <li>
-                    <a href="#" class="text-center">
+                    <a href="{{ url('/' . $user->username . '/followers') }}" class="text-center">
                         <div class="text-uppercase">Followers</div>
-                        <div>0</div>
+                        <div>{{ $followers_count }}</div>
                     </a>
                 </li>
               </ul>

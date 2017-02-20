@@ -35,8 +35,19 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'followers', 'follower_user_id', 'user_id')->withTimestamps();
     }
 
+    /**
+     * Does current user following this user?
+     */
     public function isFollowing(User $user)
     {
         return !is_null($this->following()->where('user_id', $user->id)->first());
+    }
+
+    /**
+     * The followers that belong to the user.
+     */
+    public function followers()
+    {
+        return $this->belongsToMany('App\User', 'followers', 'user_id', 'follower_user_id')->withTimestamps();
     }
 }
