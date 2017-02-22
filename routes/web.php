@@ -20,10 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('/following', 'ProfileController@following');
+	Route::get('/following', 'ProfileController@following')->name('following');
     Route::post('/follows', 'UserController@follows');
     Route::post('/unfollows', 'UserController@unfollows');
 });
 
-Route::get('/{username}', 'ProfileController@show');
-Route::get('/{username}/followers', 'ProfileController@followers');
+Route::get('/{username}', 'ProfileController@show')->name('profile');
+Route::get('/{username}/followers', 'ProfileController@followers')->name('followers');
