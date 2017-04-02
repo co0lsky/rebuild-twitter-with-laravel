@@ -50,4 +50,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\User', 'followers', 'user_id', 'follower_user_id')->withTimestamps();
     }
+
+    /**
+     * Get the tweets for the user.
+     */
+    public function tweets()
+    {
+        return $this->hasMany('App\Tweet', 'user_id', 'id');
+    }
 }
