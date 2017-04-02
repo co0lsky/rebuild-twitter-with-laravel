@@ -14,6 +14,9 @@ class ProfileController extends Controller
 
         $followers_count =  $user->followers()->count();
 
+        // Fix undefined variable error when user is not login
+        $following_count = 0;
+
     	$is_edit_profile = false;
     	$is_following = false;
 
