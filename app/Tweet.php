@@ -14,4 +14,9 @@ class Tweet extends Model
     public function getCreatedAtAttribute($value) {
         return Carbon::createFromFormat('Y-m-d h:i:s', $value)->diffForHumans();
     }
+
+    public function author()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }

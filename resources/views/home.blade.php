@@ -11,7 +11,7 @@
                 <div class="panel-body" id="list-1" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
                     <template v-for="tweet in items">
                         <div class="list-group-item">
-                            <h4 class="list-group-item-heading">@{{ tweet.user_id }}</h4>
+                            <h4 class="list-group-item-heading">@{{ tweet.author.name }}</h4>
                             <p>@{{ tweet.body }}</p>
                             <div class="list-group-item-text panel panel-default">
                                 <div class="media">
