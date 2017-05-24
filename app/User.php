@@ -86,7 +86,7 @@ class User extends Authenticatable
 
         // Sort descending by the creation date
         $sorted = $timeline->sortByDesc(function ($tweet) {
-            return $tweet->created_at;
+            return $tweet->updated_at;
         });
 
         return $sorted->values()->all();
