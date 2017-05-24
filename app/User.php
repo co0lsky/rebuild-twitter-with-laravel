@@ -73,7 +73,7 @@ class User extends Authenticatable
             // Set 10 items per page
             $query->paginate(10);
 
-        }])->get();
+        }, 'tweets.link'])->get();
 
        // By default, the tweets will group by user.
         // [User1 => [Tweet1, Tweet2], User2 => [Tweet1]]

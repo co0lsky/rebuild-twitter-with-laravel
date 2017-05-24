@@ -31,20 +31,22 @@
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">@{{ tweet.author.name }}</h4>
                             <p>@{{ tweet.body }}</p>
-                            <div class="list-group-item-text panel panel-default">
-                                <div class="media">
-                                    <div class="media-middle">
-                                        <img class="media-object center-block" src="https://cdn.boogiecall.com/media/images/872398e3d9598c494a2bed72268bf018_1440575488_7314_s.jpg">
-                                    </div>
-                                    <div class="media-body panel-body">
-                                        <h3 class="media-heading">
-                                            Events, parties & live concerts in Melbourne
-                                        </h3>
-                                        <div>
-                                            List of events in Melbourne. Nightlife, best parties and concerts in Melbourne, event listings and reviews.
+                            <div class="list-group-item-text panel panel-default" v-if="tweet.link">
+                                <a v-bind:href="tweet.link.url" target="_blank" style="text-decoration: none;">
+                                    <div class="media">
+                                        <div class="media-middle">
+                                            <img class="media-object center-block" style="max-width: 100%;" v-bind:src="tweet.link.cover">
+                                        </div>
+                                        <div class="media-body panel-body">
+                                            <h3 class="media-heading">
+                                                @{{ tweet.link.title }}
+                                            </h3>
+                                            <div>
+                                                @{{ tweet.link.description }}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <p class="list-group-item-text">@{{ tweet.created_at }}</p>
                         </div>

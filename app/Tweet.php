@@ -19,4 +19,9 @@ class Tweet extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function link()
+    {
+        return $this->belongsTo('App\Link', 'link_id');
+    }
 }
