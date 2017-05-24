@@ -15,6 +15,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\LinkCreated' => [
             'App\Listeners\NotifyLinkPreviewGenerator',
+            'App\Listeners\NotifyUrlShortener',
         ],
     ];
 
