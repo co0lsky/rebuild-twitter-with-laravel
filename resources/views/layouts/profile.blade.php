@@ -99,21 +99,21 @@
 
             <div class="col-md-8">
               <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#" class="text-center">
+                <li class="{{ !Route::currentRouteNamed('profile') ? : 'active' }}">
+                    <a href="{{ url('/' . $user->username) }}" class="text-center">
                         <div class="text-uppercase">Tweets</div>
                         <div>0</div>
                     </a>
                 </li>
                 @if ($is_edit_profile)
-                <li>
+                <li class="{{ !Route::currentRouteNamed('following') ? : 'active' }}">
                     <a href="{{ url('/following') }}" class="text-center">
                         <div class="text-uppercase">Following</div>
                         <div>{{ $following_count }}</div>
                     </a>
                 </li>
                 @endif
-                <li>
+                <li class="{{ !Route::currentRouteNamed('followers') ? : 'active' }}">
                     <a href="{{ url('/' . $user->username . '/followers') }}" class="text-center">
                         <div class="text-uppercase">Followers</div>
                         <div>{{ $followers_count }}</div>
