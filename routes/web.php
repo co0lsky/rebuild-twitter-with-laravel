@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 // route for follow and unfollow using midleware
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('/timeline', 'ShowTimeline');
     Route::get('/following', 'ProfileController@following')->name('following');
     Route::post('/follows', 'UserController@follows');
     Route::post('/unfollows', 'UserController@unfollows');

@@ -19,6 +19,9 @@ class ProfileController extends Controller
 
       $followers_count = $user->followers()->count();
 
+      // define variable following count
+      $following_count = 0;
+
       $is_edit_profile = false;
       $is_following = false;
 
