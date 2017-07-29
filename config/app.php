@@ -167,7 +167,8 @@ return [
          * Package Service Providers...
          */
 
-        //
+        //after update tinker
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...
