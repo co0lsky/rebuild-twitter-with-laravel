@@ -82,6 +82,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <!-- <script src="/js/app.js"></script> -->
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+    @yield('script')
 </body>
 </html>
