@@ -69,7 +69,7 @@ class User extends Authenticatable
     */
     public function timeline()
     {
-      $following = $this->following()->with(['tweets' => function($query) {
+      $following = $this->following()->with(['tweets.author' => function($query) {
         $query->orderBy('created_at','desc');
 
         // sort id desc
