@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Laratweet',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,8 @@ return [
          * Package Service Providers...
          */
 
-        //
+        //after update tinker
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...

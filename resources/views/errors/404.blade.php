@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>404 Not found</title>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
@@ -66,18 +60,14 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
-            @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laratweet
+                <div class="title">
+                    404 Not found
                 </div>
-                <a href="https://medium.com/@just4sky">User and Authentication</a>
+                <div class="links">
+                    <a href="{{ url('/') }}">Click to Home</a>
+                </div>
             </div>
         </div>
     </body>
