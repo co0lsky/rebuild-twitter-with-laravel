@@ -23,3 +23,79 @@ These are the key features of the Twitter that we are going to rebuild,
 * Timeline
 
 For more, please visit to the [Rebuild Twitter with Laravel](https://medium.com/@just4sky/rebuild-twitter-with-laravel-user-and-authentication-9b0adb392dc6).
+
+
+## Setup
+
+### Clone the project
+
+Project link: https://github.com/co0lsky/rebuild-twitter-with-laravel
+Clone the project from Github
+
+```
+// Terminal
+git clone -b '#4_PostTweet_LinkPreview_UrlShorten' https://github.com/co0lsky/rebuild-twitter-with-laravel.git laratweet
+cd laratweet
+composer install
+```
+
+If you hit an error. Don't worry, run an update to fix it.
+
+```
+// Terminal
+composer update
+```
+
+### Configure application environment file
+
+Duplicate the .env.example to be .env
+
+Configure database access. I recommend you to create a new database for this application. The table name has no unique prefix or suffix, it might clash with your existing table which is having the same name, like users.
+
+```
+// .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laratweet
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+
+### Generate Application Key
+
+Next, you should generate an application key. The application key helps to secure your application’s user sessions and other encrypted data.
+
+```
+// Terminal
+php artisan key:generate
+Application key [base64:uJwG9Kge1xwH7O0/sckwN96pENJJy8cr5i+WbwQ7dYw=] set successfully.
+```
+
+### Migration
+
+Next, migrate your database.
+
+```
+// Terminal
+php artisan migrate
+Migration table created successfully.
+Migrated: 2014_10_12_000000_create_users_table
+Migrated: 2014_10_12_100000_create_password_resets_table
+Migrated: 2017_02_11_083844_create_followers_table
+Migrated: 2017_03_27_083148_create_tweets_table
+```
+
+### Test
+
+Launch your application.
+
+![Home page](http://iteachyouhowtocode.com/wp-content/uploads/2017/08/medium_1.png)
+
+Register as a user.
+
+![Register page](http://iteachyouhowtocode.com/wp-content/uploads/2017/08/medium_2.png)
+
+![Home page](http://iteachyouhowtocode.com/wp-content/uploads/2017/08/medium_3.png)
+
+Alright, the application is ready.

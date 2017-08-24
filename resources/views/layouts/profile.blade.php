@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -140,60 +140,16 @@
     </div>
 
     <!-- Scripts -->
+    <script src="{{ mix('/js/manifest.js') }}"></script>
+    <script src="{{ mix('/js/vendor.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 
-    <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-resource@1.2.0/dist/vue-resource.min.js"></script>
     <script>
-        new Vue({
-            el: '#app',
-
-            data: {
-                username: '{{ $user->username }}',
-                isFollowing: {{ $is_following ? 1 : 0 }},
-                followBtnTextArr: ['Follow', 'Unfollow'],
-                followBtnText: ''
-            },
-
-            methods: {
-                follows: function (event) {
-                    var csrfToken = Laravel.csrfToken;
-                    var url = this.isFollowing ? '/unfollows' : '/follows';
-
-                    this.$http.post(url, {
-                        'username': this.username
-                    }, {
-                        headers: {
-                            'X-CSRF-TOKEN': csrfToken
-                        }
-                    })
-                    .then(response => {
-                        var data = response.body;
-
-                        if (!data.status) {
-                            alert(data.message);
-                            return;
-                        }
-
-                        this.toggleFollowBtnText();
-                    });
-
-
-                },
-
-                toggleFollowBtnText: function() {
-                    this.isFollowing = (this.isFollowing + 1) % this.followBtnTextArr.length;
-                    this.setFollowBtnText();
-                },
-
-                setFollowBtnText: function() {
-                    this.followBtnText = this.followBtnTextArr[this.isFollowing];
-                }
-            },
-
-            mounted: function() {
-                this.setFollowBtnText();
-            }
-        });
+        window.App = <?php echo json_encode([
+            'username' => $user->username,
+            'isFollowing' => $is_following ? 1 : 0,
+        ]); ?>
     </script>
+    <script src="{{ mix('/js/pages/layout_profile.js') }}"></script>
 </body>
 </html>
